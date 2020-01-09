@@ -19,6 +19,7 @@ RUN echo "Zip Archive" && apt-get install -y zlib1g-dev && docker-php-ext-instal
 RUN echo "mbstring bcmath" && docker-php-ext-install bcmath mbstring
 RUN echo "Libmcrypt-dev" && apt-get install -y libmcrypt-dev
 RUN echo "mcrypt" && docker-php-ext-install mcrypt
+RUN apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pdo pdo_pgsql
 
 # Add Bin Composer in PATH
 ENV PATH ${PATH}:~/.composer/vendor/bin
